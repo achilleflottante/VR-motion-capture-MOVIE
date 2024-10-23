@@ -5,17 +5,26 @@ using UnityEngine;
 public class offset : MonoBehaviour
 {
     [SerializeField]
-    public int offsetcam;
+    public float offsetx;
+    public float offsety;
+    public float offsetz;
+    public float tiltx;
+    public float tilty;
+    public float tiltz;
+
     // Start is called before the first frame update
     void Start()
     {
-         transform.position = transform.position + new Vector3(0, offsetcam, 0);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + new Vector3(0, offsetcam, 0);
+        transform.position = transform.position + new Vector3(offsetx, offsety, offsety);
+        Vector3 rotationVector = transform.eulerAngles + new Vector3(tiltx, tilty, tiltz);
+        
+        transform.rotation = Quaternion.Euler(rotationVector);
        
     }
 }
