@@ -9,9 +9,9 @@ public class Line : MonoBehaviour
     LineRenderer lr;
     public Transform Point1;
     public Transform Point2;
-    public float Saturation;
-    public float Value;
-    public float DistanceMax;
+    float Saturation = 100f;
+    float Value = 100f;
+    float DistanceMax = 20;
 
     void Start()
     {
