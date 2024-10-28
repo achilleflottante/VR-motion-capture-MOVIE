@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class offset : MonoBehaviour
+public class tracking : MonoBehaviour
 {
 
     public Vector3 calibpos;
@@ -17,14 +17,13 @@ public class offset : MonoBehaviour
     public float tilty;
     public float tiltz;
     public  GameObject tracker;
-    public GameObject reference;
 
     // Start is called before the first frame update
     void Start()
     {
-       calibpos = reference.transform.position - tracker.transform.position;
-       calibrot = reference.transform.eulerAngles -  tracker.transform.eulerAngles;
-
+       calibpos = tracker.transform.position;
+       calibrot = tracker.transform.eulerAngles;
+        
 
     }
 
@@ -32,8 +31,8 @@ public class offset : MonoBehaviour
     void Update()
     {
         
-        transform.position = transform.position + calibpos + new Vector3(offsetx, offsety, offsetz);
-        Vector3 rotationVector = transform.eulerAngles + calibrot + new Vector3(tiltx, tilty, tiltz);
+        transform.position = calibpos + new Vector3(offsetx, offsety, offsetz);
+        Vector3 rotationVector = calibrot + new Vector3(tiltx, tilty, tiltz);
         
         transform.rotation = Quaternion.Euler(rotationVector);
        
