@@ -21,7 +21,7 @@ public class offset : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + new Vector3(offsetx, offsety, offsety);
+        transform.position = transform.position + new Vector3(offsetx, offsety, offsetz);
         Vector3 rotationVector = transform.eulerAngles + new Vector3(tiltx, tilty, tiltz);
         
         transform.rotation = Quaternion.Euler(rotationVector);
