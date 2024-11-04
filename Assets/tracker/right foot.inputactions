@@ -39,7 +39,7 @@
                 {
                     "name": "",
                     "id": "f8a9a29d-215d-4aaa-bf11-2f8167abccd2",
-                    "path": "<XRViveTracker>{Left Foot}/deviceRotation",
+                    "path": "<XRViveTracker>{Right Foot}/deviceRotation",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
