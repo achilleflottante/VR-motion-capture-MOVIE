@@ -5,11 +5,10 @@ using UnityEngine;
 public class ColorMember : MonoBehaviour
 {
     SkinnedMeshRenderer mr;
-    public Transform Point1;
-    public Transform Point2;
+    public Transform point;
     float Saturation = 100f;
     float Value = 100f;
-    float DistanceMax = 20;
+    float DistanceMax = 0.8f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +19,7 @@ public class ColorMember : MonoBehaviour
     void Update()
     {
         mr = GetComponent<SkinnedMeshRenderer>();
-        mr.material.color = Color.HSVToRGB(hue(Vector3.Distance(Point1.position, Point2.position)) / 360f, Saturation / 100f, Value / 100f);
+        mr.material.color = Color.HSVToRGB(hue(point.gameObject.GetComponent<Distance>().distance) / 360f, Saturation / 100f, Value / 100f);
     }
     float hue(float distance)
     {

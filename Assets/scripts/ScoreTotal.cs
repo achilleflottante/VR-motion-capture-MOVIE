@@ -9,16 +9,22 @@ public class ScoreTotal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        childCount = (float)transform.childCount;
     }
 
     // Update is called once per frame
     void Update()
     {
         scoreTotal = 0f;
+        childCount = 0f; 
         foreach (Transform child in transform)
         {
-            scoreTotal += child.GetComponent<Scores>().score / childCount;
+            if (child.gameObject.activeInHierarchy)
+            {
+                scoreTotal += child.GetComponent<Scores>().score;
+                childCount += 1;
+            }
+           
         }
+        scoreTotal = scoreTotal / childCount;
     }
 }
